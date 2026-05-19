@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F906FB18-7675-4D7B-839D-633D8408F769}</ProjectGuid>
+    <ProjectGuid>{CA50A40F-9C4F-4558-89C0-151A5FA783F0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ADO</RootNamespace>
-    <AssemblyName>ADO</AssemblyName>
+    <RootNamespace>DLLcheck</RootNamespace>
+    <AssemblyName>DLLcheck</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DBTools">
+      <HintPath>..\DBTools\bin\Debug\DBTools.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -44,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

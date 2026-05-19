@@ -20,12 +20,12 @@ namespace ADO_P_421
         {
             //@"RAW-строка"
             string cmd = $@"SELECT	COLUMN_NAME
-FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE
-WHERE   INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE.CONSTRAINT_NAME =
-(
-SELECT  CONSTRAINT_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
-WHERE   CONSTRAINT_TYPE = N'PRIMARY KEY' AND TABLE_NAME = N'{table}'
-)";
+                            FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE
+                            WHERE   INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE.CONSTRAINT_NAME =
+                            (
+                            SELECT  CONSTRAINT_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+                            WHERE   CONSTRAINT_TYPE = N'PRIMARY KEY' AND TABLE_NAME = N'{table}'
+                            )";
             return Scalar(cmd).ToString();
         }
         public object GetLastPrimaryKey(string table)
