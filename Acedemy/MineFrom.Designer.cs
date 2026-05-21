@@ -40,7 +40,7 @@
 			this.tabPageTeachers = new System.Windows.Forms.TabPage();
 			this.dgvTeachers = new System.Windows.Forms.DataGridView();
 			this.toolStripStatusLable = new System.Windows.Forms.StatusStrip();
-			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tabControl.SuspendLayout();
 			this.tabPageStudents.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
@@ -180,18 +180,18 @@
 			// toolStripStatusLable
 			// 
 			this.toolStripStatusLable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabel});
 			this.toolStripStatusLable.Location = new System.Drawing.Point(0, 428);
 			this.toolStripStatusLable.Name = "toolStripStatusLable";
 			this.toolStripStatusLable.Size = new System.Drawing.Size(800, 22);
 			this.toolStripStatusLable.TabIndex = 1;
 			this.toolStripStatusLable.Text = "toolStripStatusLable";
 			// 
-			// toolStripStatusLabel1
+			// toolStripStatusLabel
 			// 
-			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(112, 17);
-			this.toolStripStatusLabel1.Text = "toolStripStatusLabel";
+			this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+			this.toolStripStatusLabel.Size = new System.Drawing.Size(112, 17);
+			this.toolStripStatusLabel.Text = "toolStripStatusLabel";
 			// 
 			// MineFrom
 			// 
@@ -234,7 +234,7 @@
 		private System.Windows.Forms.DataGridView dgvDirections;
 		private System.Windows.Forms.DataGridView dgvDisciplines;
 		private System.Windows.Forms.DataGridView dgvTeachers;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
 	}
 }
 
