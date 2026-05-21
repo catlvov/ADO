@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Data;
+
 
 namespace DBTools
 {
@@ -63,29 +65,41 @@ namespace DBTools
 			connection.Close();
 			return value;
 		}
-		public void Select(string fields, string tables, string condition = "")
+		public DataTable Select(string fields, string tables, string condition = "")
 		{
 			string cmd = $"SELECT {fields} FROM {tables} ";
 			if (condition != "" && condition != " ") cmd += $" WHERE {condition}";
+			return 
 			Select(cmd);
 		}
-		public void Select(string cmd)
+		public DataTable Select(string cmd)
 		{
+			DataTable table = new DataTable();
 			SqlCommand command = new SqlCommand(cmd, connection);
 			connection.Open();
 			SqlDataReader reader = command.ExecuteReader();
 			for (int i = 0; i < reader.FieldCount; i++)
+			{
+				table.Columns.Add(reader.GetName(i));
 				Console.Write(reader.GetName(i));
+			}
 			Console.WriteLine();
+
 			while (reader.Read())
 			{
+				DataRow row = table.NewRow();
 				//Console.WriteLine($"{reader[0]}\t{reader[1]}\t{reader[2]}");
 				for (int i = 0; i < reader.FieldCount; i++)
+				{
+					row[i] = reader[i];
 					Console.Write(reader[i] + "\t");
+				}
 				Console.WriteLine();
+				table.Rows.Add(row);
 			}
 			reader.Close();
 			connection.Close();
+			return table;
 		}
 	}
 }
