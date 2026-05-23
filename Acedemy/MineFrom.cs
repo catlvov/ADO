@@ -92,21 +92,23 @@ namespace Acedemy
 					queries[1].ToString() + 
 					(cbGroupsDirection.SelectedIndex == 0 ? "" : $" AND direction={cbGroupsDirection.SelectedValue}")
 				);
-			//Console.WriteLine($"SelectedIndex:{cbGroupsDirections.SelectedIndex}");
-			//console.writeline($"selectedindex:{cbgroupsdirections.selecteditem}");
-			//console.writeline($"selectedindex:{cbgroupsdirections.selectedtext}");
-			//console.writeline($"selectedindex:{cbgroupsdirections.selectedvalue}");
-		}
+            //Console.WriteLine($"SelectedIndex:{cbGroupsDirections.SelectedIndex}");
+            //console.writeline($"selectedindex:{cbgroupsdirections.selecteditem}");
+            //console.writeline($"selectedindex:{cbgroupsdirections.selectedtext}");
+            //console.writeline($"selectedindex:{cbgroupsdirections.selectedvalue}");
+            toolStripStatusLabel.Text = $"Количество записей: {tables[1].RowCount - 1}";
+        }
 
         private void cbStudentsGroups_SelectionChangeCommitted(object sender, EventArgs e)
         {
 			if (cbStudentsGroups.SelectedIndex == 0) 
 				cbStudentsDirections_SelectionChangeCommitted(cbStudentsDirections, null);
-			tables[0].DataSource = connector.Select
+			else tables[0].DataSource = connector.Select
 				(
 				queries[0].ToString() + 
 				(cbStudentsGroups.SelectedIndex == 0 ? "" : $" AND [group]={cbStudentsGroups.SelectedValue}")
-				);
+			);
+			toolStripStatusLabel.Text = $"Количество записей: {tables[0].RowCount - 1}";
         }
 
         private void cbStudentsDirections_SelectionChangeCommitted(object sender, EventArgs e)
@@ -121,6 +123,7 @@ namespace Acedemy
 				cbStudentsGroups, "Groups", 
 				(cbStudentsDirections.SelectedIndex == 0 ? "" : $"direction={cbStudentsDirections.SelectedValue}")
 				);
+            toolStripStatusLabel.Text = $"Количество записей: {tables[0].RowCount - 1}";
         }
     }
 }

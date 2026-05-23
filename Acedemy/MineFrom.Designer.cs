@@ -39,7 +39,6 @@
             this.tabPageDisciplines = new System.Windows.Forms.TabPage();
             this.dgvDisciplines = new System.Windows.Forms.DataGridView();
             this.tabPageTeachers = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dgvTeachers = new System.Windows.Forms.DataGridView();
             this.toolStripStatusLable = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -151,9 +150,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDirections.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDirections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDirections.Location = new System.Drawing.Point(7, 40);
+            this.dgvDirections.Location = new System.Drawing.Point(7, 29);
             this.dgvDirections.Name = "dgvDirections";
-            this.dgvDirections.Size = new System.Drawing.Size(777, 363);
+            this.dgvDirections.Size = new System.Drawing.Size(777, 374);
             this.dgvDirections.TabIndex = 0;
             // 
             // tabPageDisciplines
@@ -174,14 +173,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDisciplines.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDisciplines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDisciplines.Location = new System.Drawing.Point(9, 48);
+            this.dgvDisciplines.Location = new System.Drawing.Point(8, 31);
             this.dgvDisciplines.Name = "dgvDisciplines";
-            this.dgvDisciplines.Size = new System.Drawing.Size(775, 355);
+            this.dgvDisciplines.Size = new System.Drawing.Size(776, 372);
             this.dgvDisciplines.TabIndex = 0;
             // 
             // tabPageTeachers
             // 
-            this.tabPageTeachers.Controls.Add(this.comboBox1);
             this.tabPageTeachers.Controls.Add(this.dgvTeachers);
             this.tabPageTeachers.Location = new System.Drawing.Point(4, 22);
             this.tabPageTeachers.Name = "tabPageTeachers";
@@ -191,14 +189,6 @@
             this.tabPageTeachers.Text = "Teachers";
             this.tabPageTeachers.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(185, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(303, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
             // dgvTeachers
             // 
             this.dgvTeachers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -206,9 +196,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTeachers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTeachers.Location = new System.Drawing.Point(9, 49);
+            this.dgvTeachers.Location = new System.Drawing.Point(9, 32);
             this.dgvTeachers.Name = "dgvTeachers";
-            this.dgvTeachers.Size = new System.Drawing.Size(775, 354);
+            this.dgvTeachers.Size = new System.Drawing.Size(775, 371);
             this.dgvTeachers.TabIndex = 0;
             // 
             // toolStripStatusLable
@@ -231,7 +221,7 @@
             // 
             this.cbGroupsDirection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGroupsDirection.FormattingEnabled = true;
-            this.cbGroupsDirection.Location = new System.Drawing.Point(238, 6);
+            this.cbGroupsDirection.Location = new System.Drawing.Point(144, 6);
             this.cbGroupsDirection.Name = "cbGroupsDirection";
             this.cbGroupsDirection.Size = new System.Drawing.Size(303, 21);
             this.cbGroupsDirection.TabIndex = 4;
@@ -289,7 +279,6 @@
 		private System.Windows.Forms.DataGridView dgvTeachers;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
 		private System.Windows.Forms.ComboBox cbStudentsGroups;
-		private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox cbGroupsDirection;
         private System.Windows.Forms.ComboBox cbStudentsDirections;
     }
