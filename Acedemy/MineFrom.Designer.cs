@@ -95,6 +95,7 @@
             this.cbStudentsGroups.Name = "cbStudentsGroups";
             this.cbStudentsGroups.Size = new System.Drawing.Size(130, 21);
             this.cbStudentsGroups.TabIndex = 2;
+            this.cbStudentsGroups.SelectionChangeCommitted += new System.EventHandler(this.cbStudentsGroups_SelectionChangeCommitted);
             // 
             // dgvStudents
             // 
@@ -241,8 +242,9 @@
             this.cbStudentsDirections.FormattingEnabled = true;
             this.cbStudentsDirections.Location = new System.Drawing.Point(144, 6);
             this.cbStudentsDirections.Name = "cbStudentsDirections";
-            this.cbStudentsDirections.Size = new System.Drawing.Size(303, 21);
+            this.cbStudentsDirections.Size = new System.Drawing.Size(352, 21);
             this.cbStudentsDirections.TabIndex = 3;
+            this.cbStudentsDirections.SelectionChangeCommitted += new System.EventHandler(this.cbStudentsDirections_SelectionChangeCommitted);
             // 
             // MineFrom
             // 

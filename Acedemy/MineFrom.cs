@@ -95,5 +95,23 @@ namespace Acedemy
 			//console.writeline($"selectedindex:{cbgroupsdirections.selectedtext}");
 			//console.writeline($"selectedindex:{cbgroupsdirections.selectedvalue}");
 		}
-	}
+
+        private void cbStudentsGroups_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+			tables[0].DataSource = connector.Select
+				(
+				queries[0].ToString() + 
+				(cbStudentsGroups.SelectedIndex == 0 ? "" : $" AND [group]={cbStudentsGroups.SelectedValue}")
+				);
+        }
+
+        private void cbStudentsDirections_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+			tables[0].DataSource = connector.Select
+				(
+				queries[0] +
+				(cbStudentsDirections.SelectedIndex == 0 ? "" : $" AND direction={cbStudentsDirections.SelectedValue}")
+				);
+        }
+    }
 }
