@@ -59,10 +59,12 @@ namespace Acedemy
         }
 		[DllImport("kernel32.dll")]
 		public static extern bool AllocConsole();
-		void LoadComboBoxFromBase(ComboBox comboBox,string table )
+		void LoadComboBoxFromBase(ComboBox comboBox,string table, string condition = "")
 		{
 			string column = table.Substring(0,table.Length-1).ToLower();
-			DataTable dt = connector.Select($"SELECT {column}_id,{column}_name FROM {table}");
+			string cmd = $"SELECT {column}_id,{column}_name FROM {table}";
+			if (condition != "") cmd += $" WHERE {condition}";
+            DataTable dt = connector.Select(cmd);
 			DataRow rowDefault = dt.NewRow();
 			rowDefault[0] = 0;
 			rowDefault[1] = "Все";
@@ -98,6 +100,8 @@ namespace Acedemy
 
         private void cbStudentsGroups_SelectionChangeCommitted(object sender, EventArgs e)
         {
+			if (cbStudentsGroups.SelectedIndex == 0) 
+				cbStudentsDirections_SelectionChangeCommitted(cbStudentsDirections, null);
 			tables[0].DataSource = connector.Select
 				(
 				queries[0].ToString() + 
@@ -111,6 +115,11 @@ namespace Acedemy
 				(
 				queries[0] +
 				(cbStudentsDirections.SelectedIndex == 0 ? "" : $" AND direction={cbStudentsDirections.SelectedValue}")
+				);
+			LoadComboBoxFromBase
+				(
+				cbStudentsGroups, "Groups", 
+				(cbStudentsDirections.SelectedIndex == 0 ? "" : $"direction={cbStudentsDirections.SelectedValue}")
 				);
         }
     }
