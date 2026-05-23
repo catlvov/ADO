@@ -53,18 +53,26 @@ namespace Acedemy
 			//	);
 			TabControlls_SelectedIndexChanged(tabControl, null);
 			//---------------------------------------------------------------
-			DataTable tGroupsDirection = connector.Select("SELECT * FROM Directions");
-			DataRow rowDefault = tGroupsDirection.NewRow();
-			rowDefault[0] = 0;
-			rowDefault[1] = "Все";
-			tGroupsDirection.Rows.InsertAt(rowDefault, 0);
-			cbGroupsDirections.DataSource = tGroupsDirection;
-			cbGroupsDirections.DisplayMember = "direction_name";
-			cbGroupsDirections.ValueMember = "direction_id";
-			cbGroupsDirections.SelectedValue = 0;
-		}
+			LoadComboBoxFromBase(cbGroupsDirection, "Directions");
+			LoadComboBoxFromBase(cbStudentsGroups, "Groups");
+            LoadComboBoxFromBase(cbStudentsDirections, "Directions");
+        }
 		[DllImport("kernel32.dll")]
 		public static extern bool AllocConsole();
+		void LoadComboBoxFromBase(ComboBox comboBox,string table )
+		{
+			string column = table.Substring(0,table.Length-1).ToLower();
+			DataTable dt = connector.Select($"SELECT {column}_id,{column}_name FROM {table}");
+			DataRow rowDefault = dt.NewRow();
+			rowDefault[0] = 0;
+			rowDefault[1] = "Все";
+			dt.Rows.InsertAt(rowDefault, 0);
+			comboBox.DataSource = dt;
+            comboBox.DisplayMember = $"{column}_name";
+            comboBox.ValueMember = $"{column}_id";
+			//cbGroupsDirections.SelectedValue = 0;
+
+		}
 		private void TabControlls_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			int i = tabControl.SelectedIndex;
@@ -80,7 +88,7 @@ namespace Acedemy
 				tables[1].DataSource = connector.Select
 				(
 					queries[1].ToString() + 
-					(cbGroupsDirections.SelectedIndex == 0 ? "" : $" AND direction={cbGroupsDirections.SelectedValue}")
+					(cbGroupsDirection.SelectedIndex == 0 ? "" : $" AND direction={cbGroupsDirection.SelectedValue}")
 				);
 			//Console.WriteLine($"SelectedIndex:{cbGroupsDirections.SelectedIndex}");
 			//console.writeline($"selectedindex:{cbgroupsdirections.selecteditem}");
