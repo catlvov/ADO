@@ -30,9 +30,11 @@
 		{
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageStudents = new System.Windows.Forms.TabPage();
+            this.cbStudentsDirections = new System.Windows.Forms.ComboBox();
             this.cbStudentsGroups = new System.Windows.Forms.ComboBox();
             this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.tabPageGroups = new System.Windows.Forms.TabPage();
+            this.cbGroupsDirection = new System.Windows.Forms.ComboBox();
             this.dgvGroups = new System.Windows.Forms.DataGridView();
             this.tabPageDirections = new System.Windows.Forms.TabPage();
             this.dgvDirections = new System.Windows.Forms.DataGridView();
@@ -42,8 +44,7 @@
             this.dgvTeachers = new System.Windows.Forms.DataGridView();
             this.toolStripStatusLable = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cbGroupsDirection = new System.Windows.Forms.ComboBox();
-            this.cbStudentsDirections = new System.Windows.Forms.ComboBox();
+            this.btnAddStudent = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPageStudents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
@@ -75,6 +76,7 @@
             // 
             // tabPageStudents
             // 
+            this.tabPageStudents.Controls.Add(this.btnAddStudent);
             this.tabPageStudents.Controls.Add(this.cbStudentsDirections);
             this.tabPageStudents.Controls.Add(this.cbStudentsGroups);
             this.tabPageStudents.Controls.Add(this.dgvStudents);
@@ -85,6 +87,16 @@
             this.tabPageStudents.TabIndex = 0;
             this.tabPageStudents.Text = "Students";
             this.tabPageStudents.UseVisualStyleBackColor = true;
+            // 
+            // cbStudentsDirections
+            // 
+            this.cbStudentsDirections.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStudentsDirections.FormattingEnabled = true;
+            this.cbStudentsDirections.Location = new System.Drawing.Point(144, 6);
+            this.cbStudentsDirections.Name = "cbStudentsDirections";
+            this.cbStudentsDirections.Size = new System.Drawing.Size(352, 21);
+            this.cbStudentsDirections.TabIndex = 3;
+            this.cbStudentsDirections.SelectionChangeCommitted += new System.EventHandler(this.cbStudentsDirections_SelectionChangeCommitted);
             // 
             // cbStudentsGroups
             // 
@@ -105,7 +117,7 @@
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudents.Location = new System.Drawing.Point(6, 30);
             this.dgvStudents.Name = "dgvStudents";
-            this.dgvStudents.Size = new System.Drawing.Size(780, 373);
+            this.dgvStudents.Size = new System.Drawing.Size(778, 373);
             this.dgvStudents.TabIndex = 0;
             // 
             // tabPageGroups
@@ -119,6 +131,15 @@
             this.tabPageGroups.TabIndex = 1;
             this.tabPageGroups.Text = "Groups";
             this.tabPageGroups.UseVisualStyleBackColor = true;
+            // 
+            // cbGroupsDirection
+            // 
+            this.cbGroupsDirection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGroupsDirection.FormattingEnabled = true;
+            this.cbGroupsDirection.Location = new System.Drawing.Point(144, 6);
+            this.cbGroupsDirection.Name = "cbGroupsDirection";
+            this.cbGroupsDirection.Size = new System.Drawing.Size(303, 21);
+            this.cbGroupsDirection.TabIndex = 4;
             // 
             // dgvGroups
             // 
@@ -217,24 +238,16 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(112, 17);
             this.toolStripStatusLabel.Text = "toolStripStatusLabel";
             // 
-            // cbGroupsDirection
+            // btnAddStudent
             // 
-            this.cbGroupsDirection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGroupsDirection.FormattingEnabled = true;
-            this.cbGroupsDirection.Location = new System.Drawing.Point(144, 6);
-            this.cbGroupsDirection.Name = "cbGroupsDirection";
-            this.cbGroupsDirection.Size = new System.Drawing.Size(303, 21);
-            this.cbGroupsDirection.TabIndex = 4;
-            // 
-            // cbStudentsDirections
-            // 
-            this.cbStudentsDirections.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbStudentsDirections.FormattingEnabled = true;
-            this.cbStudentsDirections.Location = new System.Drawing.Point(144, 6);
-            this.cbStudentsDirections.Name = "cbStudentsDirections";
-            this.cbStudentsDirections.Size = new System.Drawing.Size(352, 21);
-            this.cbStudentsDirections.TabIndex = 3;
-            this.cbStudentsDirections.SelectionChangeCommitted += new System.EventHandler(this.cbStudentsDirections_SelectionChangeCommitted);
+            this.btnAddStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddStudent.Location = new System.Drawing.Point(637, 3);
+            this.btnAddStudent.Name = "btnAddStudent";
+            this.btnAddStudent.Size = new System.Drawing.Size(147, 23);
+            this.btnAddStudent.TabIndex = 4;
+            this.btnAddStudent.Text = "Добавить";
+            this.btnAddStudent.UseVisualStyleBackColor = true;
+            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // MineFrom
             // 
@@ -281,6 +294,7 @@
 		private System.Windows.Forms.ComboBox cbStudentsGroups;
         private System.Windows.Forms.ComboBox cbGroupsDirection;
         private System.Windows.Forms.ComboBox cbStudentsDirections;
+        private System.Windows.Forms.Button btnAddStudent;
     }
 }
 

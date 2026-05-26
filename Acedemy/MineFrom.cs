@@ -125,5 +125,11 @@ namespace Acedemy
 				);
             toolStripStatusLabel.Text = $"Количество записей: {tables[0].RowCount - 1}";
         }
+
+        private void btnAddStudent_Click(object sender, EventArgs e)
+        {
+			HumanForm humanForm = new HumanForm();
+			humanForm.ShowDialog();
+        }
     }
 }
