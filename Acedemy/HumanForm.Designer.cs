@@ -185,6 +185,7 @@
             // btnCansel
             // 
             this.btnCansel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCansel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCansel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCansel.Location = new System.Drawing.Point(309, 378);
             this.btnCansel.Name = "btnCansel";
@@ -196,6 +197,7 @@
             // btnOk
             // 
             this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOk.Location = new System.Drawing.Point(216, 378);
             this.btnOk.Name = "btnOk";

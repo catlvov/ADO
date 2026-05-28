@@ -25,6 +25,8 @@ namespace DBTools
                             )";
 			return Scalar(cmd).ToString();
 		}
+
+
 		public object GetLastPrimaryKey(string table)
 		{
 			string cmd = $"SELECT MAX({GetPrimaryKeyColumnName(table)}) FROM {table}";

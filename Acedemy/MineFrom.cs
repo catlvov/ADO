@@ -53,28 +53,28 @@ namespace Acedemy
 			//	);
 			TabControlls_SelectedIndexChanged(tabControl, null);
 			//---------------------------------------------------------------
-			LoadComboBoxFromBase(cbGroupsDirection, "Directions");
-			LoadComboBoxFromBase(cbStudentsGroups, "Groups");
-            LoadComboBoxFromBase(cbStudentsDirections, "Directions");
+			DataBase.LoadComboBoxFromBase(cbGroupsDirection, "Directions");
+			DataBase.LoadComboBoxFromBase(cbStudentsGroups, "Groups");
+            DataBase.LoadComboBoxFromBase(cbStudentsDirections, "Directions");
         }
 		[DllImport("kernel32.dll")]
 		public static extern bool AllocConsole();
-		void LoadComboBoxFromBase(ComboBox comboBox,string table, string condition = "")
-		{
-			string column = table.Substring(0,table.Length-1).ToLower();
-			string cmd = $"SELECT {column}_id,{column}_name FROM {table}";
-			if (condition != "") cmd += $" WHERE {condition}";
-            DataTable dt = connector.Select(cmd);
-			DataRow rowDefault = dt.NewRow();
-			rowDefault[0] = 0;
-			rowDefault[1] = "Все";
-			dt.Rows.InsertAt(rowDefault, 0);
-			comboBox.DataSource = dt;
-            comboBox.DisplayMember = $"{column}_name";
-            comboBox.ValueMember = $"{column}_id";
-			//cbGroupsDirections.SelectedValue = 0;
+		//void LoadComboBoxFromBase(ComboBox comboBox,string table, string condition = "")
+		//{
+		//	string column = table.Substring(0,table.Length-1).ToLower();
+		//	string cmd = $"SELECT {column}_id,{column}_name FROM {table}";
+		//	if (condition != "") cmd += $" WHERE {condition}";
+  //          DataTable dt = connector.Select(cmd);
+		//	DataRow rowDefault = dt.NewRow();
+		//	rowDefault[0] = 0;
+		//	rowDefault[1] = "Все";
+		//	dt.Rows.InsertAt(rowDefault, 0);
+		//	comboBox.DataSource = dt;
+  //          comboBox.DisplayMember = $"{column}_name";
+  //          comboBox.ValueMember = $"{column}_id";
+		//	//cbGroupsDirections.SelectedValue = 0;
 
-		}
+		//}
 		private void TabControlls_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			int i = tabControl.SelectedIndex;
@@ -118,7 +118,7 @@ namespace Acedemy
 				queries[0] +
 				(cbStudentsDirections.SelectedIndex == 0 ? "" : $" AND direction={cbStudentsDirections.SelectedValue}")
 				);
-			LoadComboBoxFromBase
+			DataBase.LoadComboBoxFromBase
 				(
 				cbStudentsGroups, "Groups", 
 				(cbStudentsDirections.SelectedIndex == 0 ? "" : $"direction={cbStudentsDirections.SelectedValue}")
