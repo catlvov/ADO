@@ -12,9 +12,29 @@ namespace Acedemy
 {
     public partial class HumanForm : Form
     {
+        internal Models.Human human;
         public HumanForm()
         {
             InitializeComponent();
+        }
+        protected virtual void Compress()
+        {
+            human = new Models.Human
+                (
+                Convert.ToInt32(labelID.Text == "" ? "0" : labelID.Text.Split(':').Last()),
+                tbLastName.Text,
+                tbFerstName.Text,
+                tbMiddelName.Text,
+                dtpBirthDate.Value.ToString("yyyy-MM-dd"),
+                tbEmail.Text,
+                tbPhone.Text,
+                pictureBoxPhoto.Image
+                );
+        }
+
+        protected virtual void btnOk_Click(object sender, EventArgs e)
+        {
+            Compress();
         }
     }
 }

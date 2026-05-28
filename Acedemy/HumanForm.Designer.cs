@@ -39,12 +39,13 @@
             this.tbFerstName = new System.Windows.Forms.TextBox();
             this.tbMiddelName = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.tbPhoto = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.tbPhone = new System.Windows.Forms.TextBox();
+            this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
             this.btnCansel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
+            this.labelID = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // labelLastName
@@ -111,7 +112,7 @@
             // 
             this.labelPhoto.AutoSize = true;
             this.labelPhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPhoto.Location = new System.Drawing.Point(213, 13);
+            this.labelPhoto.Location = new System.Drawing.Point(212, 14);
             this.labelPhoto.Name = "labelPhoto";
             this.labelPhoto.Size = new System.Drawing.Size(63, 24);
             this.labelPhoto.TabIndex = 6;
@@ -161,30 +162,31 @@
             this.tbEmail.Size = new System.Drawing.Size(197, 29);
             this.tbEmail.TabIndex = 11;
             // 
-            // tbPhoto
+            // tbPhone
             // 
-            this.tbPhoto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.tbPhoto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllSystemSources;
-            this.tbPhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbPhoto.Location = new System.Drawing.Point(13, 336);
-            this.tbPhoto.MaxLength = 16;
-            this.tbPhoto.Name = "tbPhoto";
-            this.tbPhoto.Size = new System.Drawing.Size(197, 29);
-            this.tbPhoto.TabIndex = 12;
+            this.tbPhone.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tbPhone.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllSystemSources;
+            this.tbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbPhone.Location = new System.Drawing.Point(13, 336);
+            this.tbPhone.MaxLength = 16;
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.Size = new System.Drawing.Size(197, 29);
+            this.tbPhone.TabIndex = 12;
             // 
-            // dateTimePicker1
+            // dtpBirthDate
             // 
-            this.dateTimePicker1.CustomFormat = "yyyy.MMMM.dd";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(13, 219);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(197, 29);
-            this.dateTimePicker1.TabIndex = 13;
+            this.dtpBirthDate.CustomFormat = "yyyy.MMMM.dd";
+            this.dtpBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dtpBirthDate.Location = new System.Drawing.Point(13, 219);
+            this.dtpBirthDate.Name = "dtpBirthDate";
+            this.dtpBirthDate.Size = new System.Drawing.Size(197, 29);
+            this.dtpBirthDate.TabIndex = 13;
             // 
             // btnCansel
             // 
+            this.btnCansel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCansel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCansel.Location = new System.Drawing.Point(311, 336);
+            this.btnCansel.Location = new System.Drawing.Point(309, 378);
             this.btnCansel.Name = "btnCansel";
             this.btnCansel.Size = new System.Drawing.Size(83, 29);
             this.btnCansel.TabIndex = 15;
@@ -193,32 +195,44 @@
             // 
             // btnOk
             // 
+            this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnOk.Location = new System.Drawing.Point(217, 336);
+            this.btnOk.Location = new System.Drawing.Point(216, 378);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(87, 29);
             this.btnOk.TabIndex = 16;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // pictureBox1
+            // pictureBoxPhoto
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(217, 41);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(177, 289);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxPhoto.Location = new System.Drawing.Point(216, 40);
+            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
+            this.pictureBoxPhoto.Size = new System.Drawing.Size(176, 289);
+            this.pictureBoxPhoto.TabIndex = 17;
+            this.pictureBoxPhoto.TabStop = false;
+            // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelID.Location = new System.Drawing.Point(13, 383);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(0, 24);
+            this.labelID.TabIndex = 18;
             // 
             // HumanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 377);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(406, 416);
+            this.Controls.Add(this.labelID);
+            this.Controls.Add(this.pictureBoxPhoto);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCansel);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.tbPhoto);
+            this.Controls.Add(this.dtpBirthDate);
+            this.Controls.Add(this.tbPhone);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbMiddelName);
             this.Controls.Add(this.tbFerstName);
@@ -236,7 +250,7 @@
             this.Name = "HumanForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "HumanForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,10 +269,11 @@
         private System.Windows.Forms.TextBox tbFerstName;
         private System.Windows.Forms.TextBox tbMiddelName;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.TextBox tbPhoto;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button btnCansel;
-        private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox tbPhone;
+        private System.Windows.Forms.DateTimePicker dtpBirthDate;
+        private System.Windows.Forms.PictureBox pictureBoxPhoto;
+        protected System.Windows.Forms.Button btnCansel;
+        protected System.Windows.Forms.Button btnOk;
+        protected System.Windows.Forms.Label labelID;
     }
 }
