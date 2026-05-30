@@ -131,7 +131,8 @@ namespace Acedemy
 			//HumanForm humanForm = new HumanForm();
 			//humanForm.ShowDialog();
 			StudentForm studentForm = new StudentForm();
-			studentForm.ShowDialog();
+			if (studentForm.ShowDialog() == DialogResult.OK)
+				TabControlls_SelectedIndexChanged(tabControl, null);
         }
     }
 }

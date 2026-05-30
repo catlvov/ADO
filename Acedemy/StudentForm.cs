@@ -21,13 +21,23 @@ namespace Acedemy
             cbGroup.ValueMember = "group_id";
             DataBase.LoadComboBoxFromBase(cbGroup,"Groups");
             
+
         }
 
         protected override void btnOk_Click(object sender, EventArgs e)
         {
             base.btnOk_Click(sender, e);
-            student = new Models.Student(human,(int)cbGroup.SelectedValue);
-            DataBase.Connector.Insert($"INSERT Students({student.GetNames()}) VALUES({student.GetValues()})");
+            //human = new Models.Student
+            //    (
+            //    0, tbLastName.Text, tbFerstName.Text, tbMiddelName.Text, dtpBirthDate.Value.ToString("yyyy-MM-dd"),
+            //    tbEmail.Text,
+            //    tbPhone.Text,
+            //    null,
+            //    (int)cbGroup.SelectedValue
+            //    );
+            student = new Models.Student(human, Convert.ToInt32(cbGroup.SelectedValue));
+            //student = new Models.Student(human, (int)cbGroup.SelectedValue);
+            DataBase.Connector.Insert($"INSERT INTO Students ({student.GetNames()}) VALUES ({student.GetValues()})");
         }
     }
 }

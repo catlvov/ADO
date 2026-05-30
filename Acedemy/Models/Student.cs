@@ -14,11 +14,12 @@ namespace Acedemy.Models
 
         public Student
             (
-            int id, int group,
+            int id,
             string last_name, string first_name, string middle_name,
             string birth_date,
             string email, string phone,
-            Image photo
+            Image photo,
+            int group
             ) : base(id,last_name,first_name,middle_name,birth_date,email,phone, photo)
         {
             this.group = group;

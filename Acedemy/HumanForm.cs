@@ -16,6 +16,11 @@ namespace Acedemy
         public HumanForm()
         {
             InitializeComponent();
+            tbLastName.Text = "Фамилия";
+            tbFerstName.Text = "Имя";
+            tbMiddelName.Text = "Отчество";
+            dtpBirthDate.Value = Convert.ToDateTime("2026-05-30");
+            tbEmail.Text = "box@example.com";
         }
         protected virtual void Compress()
         {

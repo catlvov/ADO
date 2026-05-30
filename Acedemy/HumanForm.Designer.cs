@@ -260,20 +260,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelLastName;
-        private System.Windows.Forms.Label labelFirstNmae;
-        private System.Windows.Forms.Label labelMiddleName;
-        private System.Windows.Forms.Label labelDirthDate;
-        private System.Windows.Forms.Label labelPhone;
-        private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.Label labelPhoto;
-        private System.Windows.Forms.TextBox tbLastName;
-        private System.Windows.Forms.TextBox tbFerstName;
-        private System.Windows.Forms.TextBox tbMiddelName;
-        private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.TextBox tbPhone;
-        private System.Windows.Forms.DateTimePicker dtpBirthDate;
-        private System.Windows.Forms.PictureBox pictureBoxPhoto;
+        protected System.Windows.Forms.Label labelLastName;
+        protected System.Windows.Forms.Label labelFirstNmae;
+        protected System.Windows.Forms.Label labelMiddleName;
+        protected System.Windows.Forms.Label labelDirthDate;
+        protected System.Windows.Forms.Label labelPhone;
+        protected System.Windows.Forms.Label labelEmail;
+        protected System.Windows.Forms.Label labelPhoto;
+        protected System.Windows.Forms.TextBox tbLastName;
+        protected System.Windows.Forms.TextBox tbFerstName;
+        protected System.Windows.Forms.TextBox tbMiddelName;
+        protected System.Windows.Forms.TextBox tbEmail;
+        protected System.Windows.Forms.TextBox tbPhone;
+        protected System.Windows.Forms.DateTimePicker dtpBirthDate;
+        protected System.Windows.Forms.PictureBox pictureBoxPhoto;
         protected System.Windows.Forms.Button btnCansel;
         protected System.Windows.Forms.Button btnOk;
         protected System.Windows.Forms.Label labelID;

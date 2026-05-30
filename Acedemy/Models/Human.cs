@@ -51,11 +51,11 @@ namespace Acedemy.Models
 
         public virtual string GetNames()
         {
-            return "last_name,first_name,middle_name,birth_date,enail,phone";
+            return "last_name,first_name,middle_name,birth_date,email,phone";
         }
         public virtual string GetValues()
         {
-            return $"N'{last_name}'N'{first_name}'N'{middle_name}N'{birth_date}'N'{email}'N'{phone}'";
+            return $"N'{last_name}',N'{first_name}',N'{middle_name}',N'{birth_date}',N'{email}',N'{phone}'";
         }
 
     }
