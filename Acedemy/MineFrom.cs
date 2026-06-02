@@ -134,5 +134,10 @@ namespace Acedemy
 			if (studentForm.ShowDialog() == DialogResult.OK)
 				TabControlls_SelectedIndexChanged(tabControl, null);
         }
+
+        private void btnAddTeachers_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

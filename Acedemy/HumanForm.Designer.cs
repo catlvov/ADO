@@ -209,11 +209,14 @@
             // 
             // pictureBoxPhoto
             // 
+            this.pictureBoxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxPhoto.Location = new System.Drawing.Point(216, 40);
             this.pictureBoxPhoto.Name = "pictureBoxPhoto";
             this.pictureBoxPhoto.Size = new System.Drawing.Size(176, 289);
             this.pictureBoxPhoto.TabIndex = 17;
             this.pictureBoxPhoto.TabStop = false;
+            this.pictureBoxPhoto.DoubleClick += new System.EventHandler(this.pictureBoxPhoto_DoubleClick);
+            this.pictureBoxPhoto.MouseHover += new System.EventHandler(this.pictureBoxPhoto_MouseHover);
             // 
             // labelID
             // 

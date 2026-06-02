@@ -37,7 +37,13 @@ namespace Acedemy
             //    );
             student = new Models.Student(human, Convert.ToInt32(cbGroup.SelectedValue));
             //student = new Models.Student(human, (int)cbGroup.SelectedValue);
-            DataBase.Connector.Insert($"INSERT INTO Students ({student.GetNames()}) VALUES ({student.GetValues()})");
+            DataBase.Connector.Scalar
+                (
+                    $"INSERT INTO Students ({student.GetNames()}) VALUES ({student.GetValues()});" +
+                    $"SELECT SCOPE_IDENTITY();"
+                );
+            if (pictureBoxPhoto.Image != null)
+                DataBase.Connector.UploadPhoto(student.SerializePhoto(), student.id, "photo", "Students");
         }
     }
 }
