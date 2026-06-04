@@ -15,12 +15,17 @@ namespace Acedemy
         Models.Student student;
         public StudentForm()
         {
+            //Default constructor - это конструктор, который может быть вызван без параметров.
             InitializeComponent();
-            cbGroup.DataSource = DataBase.Connector.Select($"SELECT group_id, group_name FROM Groups");
-            cbGroup.DisplayMember = "group_name";
-            cbGroup.ValueMember = "group_id";
-            DataBase.LoadComboBoxFromBase(cbGroup,"Groups");
-            
+            //cbGroup.DataSource = DataBase.Connector.Select($"SELECT group_id,group_name FROM Groups");
+            //cbGroup.DisplayMember = "group_name";
+            //cbGroup.ValueMember = "group_id";
+            DataBase.LoadComboBoxFromBase(cbGroup, "Groups");
+        }
+
+        public StudentForm(int id) : this()
+        {
+            DataTable data = DataBase.Connector.Select("*", "Students", $"stud_id={id}");
 
         }
 

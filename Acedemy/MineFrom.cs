@@ -139,5 +139,11 @@ namespace Acedemy
         {
 
         }
+
+        private void dgvStudents_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int id = Convert.ToInt32(dgvStudents.Rows[e.RowIndex].Cells[0].Value);
+            StudentForm studentForm = new StudentForm(id);
+        }
     }
 }
