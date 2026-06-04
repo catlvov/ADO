@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
+
 namespace Acedemy
 {
     public partial class HumanForm : Form
@@ -42,15 +44,22 @@ namespace Acedemy
             Compress();
         }
 
-        private void pictureBoxPhoto_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void pictureBoxPhoto_MouseHover(object sender, EventArgs e)
         {
             ToolTip tt = new ToolTip();
             tt.SetToolTip(pictureBoxPhoto, "Для выбора фото сделайте двойной щелчек мышью");
+
+        }
+
+        private void pictureBoxPhoto_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxPhoto.Image = Image.FromFile(dialog.FileName);
+            }
         }
     }
 }
