@@ -26,18 +26,34 @@ namespace Acedemy
         public StudentForm(int id) : this()
         {
             DataTable data = DataBase.Connector.Select("*", "Students", $"stud_id={id}");
+            //data.Rows[0].
+            human = student = new Models.Student(data.Rows[0].ItemArray);
+            Exctract();
+        }
 
+        protected override void Exctract()
+        {
+            base.Exctract();
+            cbGroup.SelectedValue = student.group;
         }
 
         protected override void btnOk_Click(object sender, EventArgs e)
         {
             base.btnOk_Click(sender, e);
             student = new Models.Student(human, Convert.ToInt32(cbGroup.SelectedValue));
-            student.id = Convert.ToInt32(DataBase.Connector.Scalar
+            if (student.id == 0) student.id = Convert.ToInt32(DataBase.Connector.Scalar
                 (
                     $"INSERT INTO Students ({student.GetNames()}) VALUES ({student.GetValues()});" +
                     $"SELECT SCOPE_IDENTITY();"
                 ));
+            if (pictureBoxPhoto.Image != null)
+                DataBase.Connector.UploadPhoto(student.SerializePhoto(), student.id, "photo", "Students");
+            else DataBase.Connector.Update
+                (
+                    "Students",
+                    student.GetUpdateExpression(),
+                    $"stud_id={student.id}"
+                );
             if (pictureBoxPhoto.Image != null)
                 DataBase.Connector.UploadPhoto(student.SerializePhoto(), student.id, "photo", "Students");
         }

@@ -38,6 +38,26 @@ namespace Acedemy.Models
             this.photo = photo;
         }
 
+        public Human(object[] values)
+        {
+            //(type)value - C-like notation (C-подобная форма записи);
+            //type(value) - Functional notation (Функциональная форма записи);
+            //Convert.ToType(value);
+            this.id = Convert.ToInt32(values[0]);
+            this.last_name = values[1].ToString();
+            this.first_name = values[2].ToString();
+            this.middle_name = values[3].ToString();
+            this.birth_date = Convert.ToDateTime(values[4]).ToString("yyyy-MM-dd");
+            this.email = values[5].ToString();
+            this.phone = values[6].ToString();
+            if (values[7] as byte[] != null)
+            {
+                MemoryStream ms = new MemoryStream(values[7] as byte[]);
+                this.photo = Image.FromStream(ms);
+                //ms.Dispose(); //https://stackoverflow.com/questions/22708150/a-generic-error-occurred-in-gdi-at-system-drawing-image-save
+            }
+        }
+
         public Human(Human other)
         {
             this.id=other.id;
@@ -59,13 +79,23 @@ namespace Acedemy.Models
         {
             return $"N'{last_name}',N'{first_name}',N'{middle_name}',N'{birth_date}',N'{email}',N'{phone}'";
         }
+        public virtual string GetUpdateExpression()
+        {
+            return
+$"last_name		=	N'{last_name}'," +
+$"first_name	=	N'{first_name}'," +
+$"middle_name	=	N'{middle_name}'," +
+$"birth_date	=	N'{birth_date}'," +
+$"email			=	N'{email}'," +
+$"phone			=	N'{phone}'";
+        }
         public byte[] SerializePhoto()
         {
-            using (MemoryStream ms = new MemoryStream()) 
-            {
-                photo.Save(ms, photo.RawFormat);
-                return ms.ToArray();
-            }
+            MemoryStream ms = new MemoryStream(photo.Width * photo.Height);
+            photo.Save(ms, photo.RawFormat);
+            byte[] raw_photo = ms.ToArray();
+            //ms.Dispose();
+            return raw_photo;
         }
     }
 }

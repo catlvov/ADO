@@ -144,6 +144,8 @@ namespace Acedemy
         {
             int id = Convert.ToInt32(dgvStudents.Rows[e.RowIndex].Cells[0].Value);
             StudentForm studentForm = new StudentForm(id);
+			if (studentForm.ShowDialog() == DialogResult.OK)
+				TabControlls_SelectedIndexChanged(tabControl, null);
         }
     }
 }

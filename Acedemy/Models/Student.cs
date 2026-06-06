@@ -10,7 +10,7 @@ namespace Acedemy.Models
 {
     internal class Student:Human
     {
-        int group;
+        internal int group;
 
         public Student
             (
@@ -24,7 +24,10 @@ namespace Acedemy.Models
         {
             this.group = group;
         }
-
+        public Student(object[] values): base(values)
+        {
+            this.group = Convert.ToInt32(values[8]);
+        }
         public Student(Human human, int group): base(human)
         {
             this.group = group;
@@ -37,6 +40,10 @@ namespace Acedemy.Models
         public override string GetValues()
         {
             return base.GetValues() + $",{group}";
+        }
+        public override string GetUpdateExpression()
+        {
+            return base.GetUpdateExpression() + $",[group]={group}";
         }
     }
 }
