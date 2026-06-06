@@ -132,7 +132,11 @@ namespace Acedemy
 			//humanForm.ShowDialog();
 			StudentForm studentForm = new StudentForm();
 			if (studentForm.ShowDialog() == DialogResult.OK)
+			{
 				TabControlls_SelectedIndexChanged(tabControl, null);
+				dgvStudents.Rows[dgvStudents.RowCount - 2].Selected = true;
+				dgvStudents.FirstDisplayedScrollingRowIndex = dgvStudents.RowCount - 2;
+			}
         }
 
         private void btnAddTeachers_Click(object sender, EventArgs e)
@@ -143,12 +147,12 @@ namespace Acedemy
         private void dgvStudents_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int id = Convert.ToInt32(dgvStudents.Rows[e.RowIndex].Cells[0].Value);
-			int firstDisplayRow = dgvStudents.FirstDisplayedScrollingRowIndex;
+            int firstDisplayingRow = dgvStudents.FirstDisplayedScrollingRowIndex;
             StudentForm studentForm = new StudentForm(id);
-			if (studentForm.ShowDialog() == DialogResult.OK)
-				TabControlls_SelectedIndexChanged(tabControl, null);
-			dgvStudents.Rows[e.RowIndex].Selected = true;
-			dgvStudents.FirstDisplayedScrollingRowIndex = firstDisplayRow;
+            if (studentForm.ShowDialog() == DialogResult.OK)
+                TabControlls_SelectedIndexChanged (tabControl, null);
+            dgvStudents.Rows[e.RowIndex].Selected = true;   //https://stackoverflow.com/questions/30785458/how-to-change-the-selected-row-in-datagridview-from-code-behind
+            dgvStudents.FirstDisplayedScrollingRowIndex = firstDisplayingRow;   //https://stackoverflow.com/questions/4766409/how-do-i-programmatically-scroll-a-winforms-datagridview-control
         }
     }
 }
