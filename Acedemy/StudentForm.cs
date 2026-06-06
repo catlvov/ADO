@@ -46,8 +46,6 @@ namespace Acedemy
                     $"INSERT INTO Students ({student.GetNames()}) VALUES ({student.GetValues()});" +
                     $"SELECT SCOPE_IDENTITY();"
                 ));
-            if (pictureBoxPhoto.Image != null)
-                DataBase.Connector.UploadPhoto(student.SerializePhoto(), student.id, "photo", "Students");
             else DataBase.Connector.Update
                 (
                     "Students",

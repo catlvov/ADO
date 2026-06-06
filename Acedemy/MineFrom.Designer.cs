@@ -229,12 +229,14 @@
             // 
             // btnAddTeacher
             // 
+            this.btnAddTeacher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddTeacher.Location = new System.Drawing.Point(674, 3);
             this.btnAddTeacher.Name = "btnAddTeacher";
             this.btnAddTeacher.Size = new System.Drawing.Size(110, 23);
             this.btnAddTeacher.TabIndex = 1;
             this.btnAddTeacher.Text = "Добавить";
             this.btnAddTeacher.UseVisualStyleBackColor = true;
+            this.btnAddTeacher.Click += new System.EventHandler(this.btnAddTeacher_Click);
             // 
             // dgvTeachers
             // 
@@ -247,7 +249,6 @@
             this.dgvTeachers.Name = "dgvTeachers";
             this.dgvTeachers.Size = new System.Drawing.Size(775, 371);
             this.dgvTeachers.TabIndex = 0;
-            this.dgvTeachers.Click += new System.EventHandler(this.btnAddTeachers_Click);
             // 
             // toolStripStatusLable
             // 
