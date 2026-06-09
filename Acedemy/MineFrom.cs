@@ -140,6 +140,7 @@ namespace Acedemy
         }
         private void dgvStudents_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+			if(e.RowIndex < 0 || e.ColumnIndex < 0) return;
             int id = Convert.ToInt32(dgvStudents.Rows[e.RowIndex].Cells[0].Value);
             int firstDisplayingRow = dgvStudents.FirstDisplayedScrollingRowIndex;
             StudentForm studentForm = new StudentForm(id);
@@ -156,6 +157,19 @@ namespace Acedemy
             {
                 TabControlls_SelectedIndexChanged(tabControl, null);
             }
+        }
+
+        private void dgvTeachers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+			if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+			int id = Convert.ToInt32(dgvTeachers.Rows[e.RowIndex].Cells[0].Value);
+			int firstDisplayingRow = dgvTeachers.FirstDisplayedScrollingRowIndex;
+            Console.WriteLine(id);
+			TeacherFrom teacherFrom = new TeacherFrom(id);
+			if(teacherFrom.ShowDialog() == DialogResult.OK)
+				TabControlls_SelectedIndexChanged(tabControl, null);
+			dgvTeachers.Rows[e.RowIndex].Selected = true;
+			dgvTeachers.FirstDisplayedScrollingRowIndex = firstDisplayingRow;
         }
     }
 }

@@ -20,6 +20,13 @@ namespace Acedemy
 
             this.Text = "Добовление приподователя";
         }
+        public TeacherFrom(int id): this()
+        {
+            DataTable data = DataBase.Connector.Select("*", "Teachers", $"teacher_id={id}");
+            human = teacher = new Models.Teacher(data.Rows[0].ItemArray);
+            Extract();
+
+        }
 
         //protected override void Compress()
         //{
@@ -27,9 +34,9 @@ namespace Acedemy
         //    teacher.work_since = dtpWorkSince.Value.ToString();
         //    teacher.rate = mtbRate.Text;
         //}
-        protected override void Exctract()
+        protected override void Extract()
         {
-            base.Exctract();
+            base.Extract();
             dtpWorkSince.Value = Convert.ToDateTime(teacher.work_since);
             mtbRate.Text = teacher.rate;
         }

@@ -28,12 +28,12 @@ namespace Acedemy
             DataTable data = DataBase.Connector.Select("*", "Students", $"stud_id={id}");
             //data.Rows[0].
             human = student = new Models.Student(data.Rows[0].ItemArray);
-            Exctract();
+            Extract();
         }
 
-        protected override void Exctract()
+        protected override void Extract()
         {
-            base.Exctract();
+            base.Extract();
             cbGroup.SelectedValue = student.group;
         }
 
